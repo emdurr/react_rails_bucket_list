@@ -1,10 +1,10 @@
 import React from 'react';
 import List from './List';
 
-const ViewLists = ({ lists }) => {
+const ViewLists = ({ lists, handleComplete, deleteList }) => {
 	let items = lists.map( list => {
 		return (
-			<List key={list.id} {...list} />
+			<List key={list.id} {...list} handleComplete={handleComplete} deleteList={deleteList} />
 		);
 	});
 	return(
@@ -14,4 +14,4 @@ const ViewLists = ({ lists }) => {
 	)
 };
 
-export default ViewLists	;
+export default ViewLists;

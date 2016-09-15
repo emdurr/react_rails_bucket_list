@@ -14,7 +14,7 @@ class Api::ListsController < ApplicationController
 
 	def update
 		list = List.find(params[:id])
-		list.update
+		list.update(complete: !item.complete)
 		render json: list
 	end
 
@@ -25,6 +25,6 @@ class Api::ListsController < ApplicationController
 
 	private
 		def list_params
-			params.require(:list).permit(:name)
+			params.require(:list).permit(:name, :complete)
 		end
 end
